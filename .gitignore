@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Runtime data
+data/inventory.json
+data/*.tmp
+data/*.corrupt-*
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

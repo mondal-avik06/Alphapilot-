@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F7FA">
+  <title>Alphapilot — Enterprise Inventory Management SaaS</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a class="brand" href="#dashboard" id="brand-link">
+          <img class="brand-logo" src="/alpha-logo.png" alt="Alphapilot logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="brand-fallback-logo" style="display:none">A</div>
+          <div class="brand-text">
+            <span class="brand-name">Alphapilot</span>
+            <span class="brand-tag">INVENTORY SAAS</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="workspace-card" id="workspace-selector" title="Switch workspace">
+        <div class="workspace-avatar">AC</div>
+        <div class="workspace-meta">
+          <span class="workspace-title">Acme Logistics Corp</span>
+          <span class="workspace-sub">Main Distribution Hub</span>
+        </div>
+        <span class="workspace-caret" id="workspace-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </span>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="nav-section-title">WORKSPACE</div>
+        <nav class="nav-group">
+          <a class="nav-item active" data-page="dashboard" href="#dashboard">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span>
+            <span class="nav-label">Overview</span>
+          </a>
+          <a class="nav-item" data-page="products" href="#products">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+            <span class="nav-label">Products</span>
+            <span class="nav-badge" id="product-count">50</span>
+          </a>
+          <a class="nav-item" data-page="inventory" href="#inventory">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg></span>
+            <span class="nav-label">Inventory</span>
+          </a>
+          <a class="nav-item" data-page="transactions" href="#transactions">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></span>
+            <span class="nav-label">Stock Movements</span>
+          </a>
+          <a class="nav-item" data-page="sales" href="#sales">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+            <span class="nav-label">Sales</span>
+          </a>
+          <a class="nav-item" data-page="purchases" href="#purchases">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+            <span class="nav-label">Purchases</span>
+          </a>
+        </nav>
+
+        <div class="nav-section-title">MANAGEMENT</div>
+        <nav class="nav-group">
+          <a class="nav-item" data-page="suppliers" href="#suppliers">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
+            <span class="nav-label">Suppliers</span>
+          </a>
+          <a class="nav-item" data-page="customers" href="#customers">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span class="nav-label">Customers</span>
+          </a>
+          <a class="nav-item" data-page="reports" href="#reports">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+            <span class="nav-label">Reports</span>
+          </a>
+        </nav>
+
+        <div class="nav-section-title">SYSTEM</div>
+        <nav class="nav-group">
+          <a class="nav-item" data-page="settings" href="#settings">
+            <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <span class="nav-label">Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="ai-assistant-card">
+          <div class="ai-card-header">
+            <span class="ai-spark-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </span>
+            <span class="ai-card-title">Alphapilot AI</span>
+          </div>
+          <p class="ai-card-desc">Ask real-time questions about stock, reorder alerts & valuations.</p>
+          <button class="ai-card-button" id="help-chat" type="button">
+            <span>Open Assistant</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </button>
+        </div>
+
+        <div class="user-profile-bar" id="profile-trigger" role="button" tabindex="0">
+          <div class="profile-avatar">AM</div>
+          <div class="profile-info">
+            <span class="profile-name">Alex Morgan</span>
+            <span class="profile-role">Administrator</span>
+          </div>
+          <button class="profile-action-btn" id="sidebar-logout" title="Log out" aria-label="Log out" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <main class="main-content">
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <span class="crumb-root">Workspace</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-current" id="crumb">Overview</span>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-box">
+            <span class="search-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </span>
+            <input id="global-search" type="search" placeholder="Search products, SKUs, suppliers..." autocomplete="off">
+            <kbd class="shortcut-tag">⌘K</kbd>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="action-icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+              <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+              <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+
+            <div class="notifications-wrapper">
+              <button class="action-icon-btn" id="bell" aria-label="Notifications" title="Stock alerts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                <span class="notification-badge" id="alert-dot" style="display:none"></span>
+              </button>
+            </div>
+
+            <div class="user-menu-wrapper">
+              <button class="topbar-avatar" id="avatar-btn" aria-label="User account">AM</button>
+              <div class="user-dropdown-menu" id="account-menu" hidden>
+                <div class="menu-user-info">
+                  <span class="user-name">Alex Morgan</span>
+                  <span class="user-role">Administrator · Acme Corp</span>
+                </div>
+                <div class="menu-divider"></div>
+                <button class="menu-item" type="button" data-action="settings">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  <span>System Settings</span>
+                </button>
+                <div class="menu-divider"></div>
+                <button class="menu-item menu-item-danger" type="button" id="header-logout">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                  <span>Log out</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Page Content -->
+      <section id="view" class="content-container" role="main"></section>
+    </main>
+  </div>
+
+  <!-- AI Assistant Widget -->
+  <button class="chat-launcher" id="chat-fab" aria-label="Open Alphapilot AI Assistant" title="Open Alphapilot Assistant">
+    <img class="launcher-logo" src="/alpha-logo.png" alt="">
+    <span class="launcher-text">Ask AI</span>
+  </button>
+
+  <section class="chat-window" id="chat-panel" aria-labelledby="assistant-title">
+    <header class="chat-window-header">
+      <div class="assistant-badge">
+        <span class="assistant-icon-wrap">
+          <img class="assistant-logo" src="/alpha-logo.png" alt="Alphapilot logo">
+        </span>
+        <div>
+          <h3 id="assistant-title" class="assistant-name">Alphapilot Assistant</h3>
+          <span class="assistant-status">
+            <span class="status-dot"></span> Gemma 3 (Local) · Live Inventory
+          </span>
+        </div>
+      </div>
+      <button class="chat-close-btn" id="close-chat" aria-label="Close assistant">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </header>
+
+    <div class="chat-body" id="chat-messages">
+      <div class="chat-bubble bot">
+        Hello Alex! I am your Alphapilot assistant, powered by your local Gemma 3 model. Ask me about stock levels, restock needs, purchase orders, or valuations!
+      </div>
+      <div class="chat-suggestions" id="chat-suggestions">
+        <button type="button" class="suggestion-chip">What is running low?</button>
+        <button type="button" class="suggestion-chip">Inventory value?</button>
+        <button type="button" class="suggestion-chip">Highest stock?</button>
+        <button type="button" class="suggestion-chip">Pending purchase orders?</button>
+        <button type="button" class="suggestion-chip">Today’s sales?</button>
+      </div>
+    </div>
+
+    <form class="chat-input-bar" id="chat-form">
+      <input id="chat-input" type="text" autocomplete="off" placeholder="Ask about your stock, orders, valuation...">
+      <button class="chat-send-btn" type="submit" aria-label="Send query">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </section>
+
+  <!-- Global Toast Notification -->
+  <div class="toast-container" id="toast"></div>
+
+  <!-- Global Modal Mount -->
+  <div id="modal-root"></div>
+</body>
+</html>
